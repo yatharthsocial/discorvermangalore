@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
@@ -10,6 +11,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-script: var(--font-great-vibes);
+  --font-display: var(--font-oswald);
+
+  /* Brand colours sampled from the Discover Mangaluru logo. */
+  --color-brand-navy: #0a315e;
+  --color-brand-orange: #e5652a;
+  --color-brand-teal: #3fa2c2;
+  --color-brand-sand: #fbf7f1;
+  --color-brand-gold: #f4b740;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +32,287 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 45%, 0);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Long ease-out so the wordmark glides up and settles gently instead of snapping into place. */
+.hero-rise {
+  animation: hero-rise 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+  will-change: transform, opacity, filter;
+}
+
+.hero-fade {
+  animation: hero-fade 1s ease-out 0.2s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise,
+  .hero-fade {
+    animation: none;
+  }
+}
+
+/* About cards glide up and fade in as they scroll into view. The motion is tied to the scroll position
+   (not a timer), so it is as smooth as the scroll itself. Browsers without scroll-driven animations just show the cards. */
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 80px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Cards drift up and fade as they leave the top of the screen. */
+@keyframes card-out {
+  to {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+}
+
+/* Ease-out so each card glides in fast and then settles softly. Only opacity and transform change, so the
+   browser can run it off the main thread; scaling is left out because it makes text shimmer while it animates. */
+@supports (animation-timeline: view()) {
+  .scroll-card {
+    animation:
+      card-in cubic-bezier(0.22, 1, 0.36, 1) both,
+      card-out cubic-bezier(0.64, 0, 0.78, 0) both;
+    animation-timeline: view(), view();
+    animation-range:
+      entry 0% cover 35%,
+      exit 30% exit 100%;
+    will-change: transform, opacity;
+  }
+}
+
+/* Legacy heading fades and rises in once as it scrolls into view. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: card-in cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 30%;
+  }
+}
+
+/* Education directory: cards fade up whenever the filter changes. */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .scroll-card,
+  .reveal {
+    animation: none;
+  }
+}
+
+/* Lenis smooth scrolling (copied from lenis/dist/lenis.css, which the package doesn't export) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+.lenis.lenis-autoToggle {
+  transition-property: overflow;
+  transition-duration: 1ms;
+  transition-behavior: allow-discrete;
+}
+
+/* Sunrise to sunset behind the About text. Mobile: tied to the graphic's own trip through the screen.
+   Desktop: tied to the whole pinned section, so the sun rises as the cards start and sets as the last one lands. */
+@keyframes sun-arc {
+  0% {
+    transform: translate3d(-46px, 108px, 0);
+    animation-timing-function: cubic-bezier(0.2, 0.6, 0.3, 1);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+    animation-timing-function: cubic-bezier(0.7, 0, 0.8, 0.4);
+  }
+  100% {
+    transform: translate3d(46px, 108px, 0);
+  }
+}
+
+/* Orange near the horizon, gold high in the sky. */
+@keyframes sun-tint {
+  0%,
+  100% {
+    fill: var(--color-brand-orange);
+  }
+  50% {
+    fill: var(--color-brand-gold);
+  }
+}
+
+@keyframes sun-rays {
+  0% {
+    opacity: 0;
+    rotate: -20deg;
+  }
+  35%,
+  65% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    rotate: 20deg;
+  }
+}
+
+/* The sun's reflection slides along the water under the sun and is strongest when the sun is near the sea. */
+@keyframes sun-reflect {
+  0% {
+    transform: translate3d(-46px, 0, 0);
+    opacity: 0;
+  }
+  15%,
+  85% {
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate3d(46px, 0, 0);
+    opacity: 0;
+  }
+}
+
+.sun-reflection {
+  opacity: 0.4;
+}
+
+.sun-glow {
+  fill: var(--color-brand-gold);
+  opacity: 0.16;
+}
+
+.sun-disc {
+  fill: var(--color-brand-orange);
+  opacity: 0.45;
+}
+
+.sun-rays {
+  color: var(--color-brand-orange);
+  opacity: 0.35;
+  transform-origin: 100px 90px;
+}
+
+@supports (animation-timeline: view()) {
+  .sun-scene {
+    view-timeline: --sun-scene block;
+  }
+
+  .sun,
+  .sun-disc,
+  .sun-glow,
+  .sun-rays,
+  .sun-reflection {
+    animation-fill-mode: both;
+    animation-timing-function: linear;
+    animation-timeline: --sun-scene;
+    animation-range: cover 0% cover 100%;
+  }
+
+  .sun {
+    animation-name: sun-arc;
+  }
+
+  .sun-disc,
+  .sun-glow {
+    animation-name: sun-tint;
+  }
+
+  .sun-rays {
+    animation-name: sun-rays;
+  }
+
+  .sun-reflection {
+    animation-name: sun-reflect;
+  }
+
+  @media (min-width: 1024px) {
+    .about-section {
+      view-timeline: --about-scroll block;
+    }
+
+    .sun,
+    .sun-disc,
+    .sun-glow,
+    .sun-rays,
+    .sun-reflection {
+      animation-timeline: --about-scroll;
+      animation-range: entry 100% exit 0%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sun,
+  .sun-disc,
+  .sun-glow,
+  .sun-rays,
+  .sun-reflection {
+    animation: none;
+  }
 }
