@@ -44,6 +44,7 @@ const cards: {
   {
     icon: Waves,
     title: "Beaches",
+    href: "/beaches",
     image: beachImg,
     imageAlt:
       "Aerial view of a long sandy beach near Mangaluru with waves breaking on large rocks",
@@ -53,6 +54,7 @@ const cards: {
   {
     icon: Landmark,
     title: "Temples & Heritage",
+    href: "/temples",
     image: kadriTempleImg,
     imageAlt:
       "Blue temple gopuram with golden deity sculptures at Kadri, Mangaluru",
@@ -71,6 +73,7 @@ const cards: {
   {
     icon: UtensilsCrossed,
     title: "Cuisine",
+    href: "/cuisine",
     image: cuisineImg,
     imageAlt:
       "Mangalorean kori rotti: chicken curry in a bowl with crisp rice wafers on the side",
@@ -111,7 +114,7 @@ export function About() {
               strokeLinecap="round"
             >
               <defs>
-                {/* Everything above the flat sea horizon — the sun disappears into the water, not behind a wave. */}
+                {/* Everything above the flat sea horizon, so the sun disappears into the water, not behind a wave. */}
                 <clipPath id="sun-horizon">
                   <rect x="-60" y="-60" width="320" height="194" />
                 </clipPath>

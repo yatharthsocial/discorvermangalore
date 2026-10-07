@@ -1,9 +1,37 @@
 import type { StaticImageData } from "next/image";
 import alvasCollegeImg from "@/assets/about/alvas-pu-college-moodbidri.jpg";
+import alvasEngineeringImg from "@/assets/institutions/alvas-engineering.jpg";
+import alvasMassMediaImg from "@/assets/institutions/alvas-mass-media.jpg";
+import alvasMbaImg from "@/assets/institutions/alvas-mba.jpg";
+import alvasMedicalImg from "@/assets/institutions/alvas-medical.jpg";
+import alvasSchoolImg from "@/assets/institutions/alvas-school.jpg";
+import aimitImg from "@/assets/institutions/aimit.jpg";
+import ajInstituteOfHotelManagementImg from "@/assets/institutions/aj-institute-of-hotel-management.jpg";
+import ajInstituteOfMedicalSciencesImg from "@/assets/institutions/aj-institute-of-medical-sciences.jpg";
+import canaraEngineeringCollegeImg from "@/assets/institutions/canara-engineering-college.jpg";
+import canaraHighSchoolImg from "@/assets/institutions/canara-high-school.jpg";
+import fatherMullerMedicalCollegeImg from "@/assets/institutions/father-muller-medical-college.jpg";
+import kasturbaMedicalCollegeImg from "@/assets/institutions/kasturba-medical-college.jpg";
+import kendriyaVidyalayaPanamburImg from "@/assets/institutions/kendriya-vidyalaya-panambur.jpg";
+import ksHegdeMedicalAcademyImg from "@/assets/institutions/ks-hegde-medical-academy.jpg";
+import lourdesCentralSchoolImg from "@/assets/institutions/lourdes-central-school.jpg";
+import mangaloreUniversityBusinessAdministrationImg from "@/assets/institutions/mangalore-university-business-administration.jpg";
+import mangaloreUniversityMassCommunicationImg from "@/assets/institutions/mangalore-university-mass-communication.jpg";
+import nitkSurathkalImg from "@/assets/institutions/nitk-surathkal.jpg";
+import paCollegeOfEngineeringImg from "@/assets/institutions/pa-college-of-engineering.jpg";
+import sahyadriCollegeImg from "@/assets/institutions/sahyadri-college.jpg";
+import sdmCollegeUjireImg from "@/assets/institutions/sdm-college-ujire.jpg";
+import srinivasCollegeOfHotelManagementImg from "@/assets/institutions/srinivas-college-of-hotel-management.jpg";
+import srinivasInstituteOfMedicalSciencesImg from "@/assets/institutions/srinivas-institute-of-medical-sciences.jpg";
+import srinivasInstituteOfTechnologyImg from "@/assets/institutions/srinivas-institute-of-technology.jpg";
+import stAloysiusCollegeJournalismImg from "@/assets/institutions/st-aloysius-college-journalism.jpg";
+import stAloysiusGonzagaSchoolImg from "@/assets/institutions/st-aloysius-gonzaga-school.jpg";
+import stJosephEngineeringCollegeImg from "@/assets/institutions/st-joseph-engineering-college.jpg";
+import yenepoyaMedicalCollegeImg from "@/assets/institutions/yenepoya-medical-college.jpg";
 
 // Content for the /education directory.
 // Ordering: an institution "pinned" to a filter is shown first in that filter, in the order listed here.
-// Alva's Education Foundation leads "All"; Rajeshwari National School leads "Schools".
+// Alva's Education Foundation leads "All" and each category it offers.
 
 export const categories = [
   { id: "school", label: "Schools" },
@@ -33,18 +61,28 @@ export type Institution = {
   image?: StaticImageData;
   imageAlt?: string;
   imagePosition?: string;
+  // A different photo to show when a specific category filter is active.
+  categoryImages?: Partial<Record<CategoryId, StaticImageData>>;
   // Part of the Alva's group (gets a small badge).
   alvas?: boolean;
 };
 
-export const institutions: Institution[] = [
+const list: Institution[] = [
   // Focus institutions
   {
     id: "alvas-education-foundation",
     name: "Alva's Education Foundation",
     area: "Moodbidri",
-    categories: [],
-    pinned: ["all"],
+    // Listed once in each of these filters (first), with that category's photo.
+    categories: ["school", "medical", "engineering", "mba", "media"],
+    pinned: ["all", "school", "medical", "engineering", "mba", "media"],
+    categoryImages: {
+      school: alvasSchoolImg,
+      medical: alvasMedicalImg,
+      engineering: alvasEngineeringImg,
+      mba: alvasMbaImg,
+      media: alvasMassMediaImg,
+    },
     featured: true,
     alvas: true,
     summary:
@@ -60,34 +98,6 @@ export const institutions: Institution[] = [
     imageAlt:
       "Alva's Pre-University College building in Moodbidri with a Yakshagana figure statue at the entrance",
     imagePosition: "50% 30%",
-  },
-  {
-    id: "rajeshwari-national-school",
-    name: "Rajeshwari National School",
-    area: "Sanoor",
-    categories: ["school"],
-    pinned: ["all", "school"],
-    featured: true,
-    summary:
-      "Rajeshwari National School in Sanoor. Full details about the school, including its curriculum, facilities and admissions, are being added.",
-  },
-
-  // Alva's institutions
-  {
-    id: "alvas-institute-of-engineering-and-technology",
-    name: "Alva's Institute of Engineering & Technology",
-    area: "Moodbidri",
-    categories: ["engineering", "mba"],
-    pinned: ["engineering", "mba"],
-    alvas: true,
-  },
-  {
-    id: "alvas-ayurveda-medical-college",
-    name: "Alva's Ayurveda Medical College",
-    area: "Moodbidri",
-    categories: ["medical"],
-    pinned: ["medical"],
-    alvas: true,
   },
 
   // Schools
@@ -241,6 +251,42 @@ export const institutions: Institution[] = [
   },
 ];
 
+// Photos for each institution, keyed by id (files in src/assets/institutions/).
+const photos: Record<string, StaticImageData> = {
+  aimit: aimitImg,
+  "aj-institute-of-hotel-management": ajInstituteOfHotelManagementImg,
+  "aj-institute-of-medical-sciences": ajInstituteOfMedicalSciencesImg,
+  "canara-engineering-college": canaraEngineeringCollegeImg,
+  "canara-high-school": canaraHighSchoolImg,
+  "father-muller-medical-college": fatherMullerMedicalCollegeImg,
+  "kasturba-medical-college": kasturbaMedicalCollegeImg,
+  "kendriya-vidyalaya-panambur": kendriyaVidyalayaPanamburImg,
+  "ks-hegde-medical-academy": ksHegdeMedicalAcademyImg,
+  "lourdes-central-school": lourdesCentralSchoolImg,
+  "mangalore-university-business-administration":
+    mangaloreUniversityBusinessAdministrationImg,
+  "mangalore-university-mass-communication":
+    mangaloreUniversityMassCommunicationImg,
+  "nitk-surathkal": nitkSurathkalImg,
+  "pa-college-of-engineering": paCollegeOfEngineeringImg,
+  "sahyadri-college": sahyadriCollegeImg,
+  "sdm-college-ujire": sdmCollegeUjireImg,
+  "srinivas-college-of-hotel-management": srinivasCollegeOfHotelManagementImg,
+  "srinivas-institute-of-medical-sciences":
+    srinivasInstituteOfMedicalSciencesImg,
+  "srinivas-institute-of-technology": srinivasInstituteOfTechnologyImg,
+  "st-aloysius-college-journalism": stAloysiusCollegeJournalismImg,
+  "st-aloysius-gonzaga-school": stAloysiusGonzagaSchoolImg,
+  "st-joseph-engineering-college": stJosephEngineeringCollegeImg,
+  "yenepoya-medical-college": yenepoyaMedicalCollegeImg,
+};
+
+export const institutions: Institution[] = list.map((i) => ({
+  ...i,
+  image: i.image ?? photos[i.id],
+  imageAlt: i.imageAlt ?? `${i.name}, ${i.area}`,
+}));
+
 /** Institutions shown for a filter: pinned ones first (in list order), then the rest (in list order). */
 export function forFilter(filter: Filter): Institution[] {
   const matches = institutions.filter(
@@ -266,9 +312,5 @@ export const faqs: { question: string; answer: string }[] = [
     question: "What can you study at Alva's Education Foundation?",
     answer:
       "Alva's runs institutions from school and pre-university level to degree and professional colleges, including engineering and ayurveda. Check the official website for current courses and admissions.",
-  },
-  {
-    question: "Where is Rajeshwari National School?",
-    answer: "Rajeshwari National School is in Sanoor.",
   },
 ];

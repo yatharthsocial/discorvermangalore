@@ -1,4 +1,4 @@
-// Central site config — update these values for the client.
+// Central site config. Update these values for the client.
 export const site = {
   name: "Vidyakashi",
   title: "Vidyakashi Blog",

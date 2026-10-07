@@ -16,14 +16,14 @@ import { faqs, forFilter, institutions } from "@/lib/education";
 import { absoluteUrl } from "@/lib/site";
 
 const description =
-  "Schools, medical, engineering, MBA, hotel management and mass media colleges in and around Mangaluru, led by Alva's Education Foundation and Rajeshwari National School, Sanoor.";
+  "Schools, medical, engineering, MBA, hotel management and mass media colleges in and around Mangaluru, led by Alva's Education Foundation in Moodbidri.";
 
 const alvas = institutions.find((i) => i.id === "alvas-education-foundation");
 
 export const metadata: Metadata = {
   // Kept to ~60 characters (without the site-name suffix) so Google shows it in full.
   title: {
-    absolute: "Education in Mangaluru | Alva's & Rajeshwari National School",
+    absolute: "Education in Mangaluru | Alva's Education Foundation",
   },
   description,
   keywords: [
@@ -36,7 +36,6 @@ export const metadata: Metadata = {
     "mass media colleges in Mangalore",
     "Alva's Education Foundation",
     "Alva's Moodbidri",
-    "Rajeshwari National School Sanoor",
   ],
   alternates: { canonical: "/education" },
   openGraph: {

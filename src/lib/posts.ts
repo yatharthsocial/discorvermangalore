@@ -22,7 +22,7 @@ export type PostMeta = {
   author?: string;
   image?: string;
   tags: string[];
-  // Short, direct answer shown at the top of the post — the main AEO lever.
+  // Short, direct answer shown at the top of the post: the main AEO lever.
   summary?: string;
   faqs: Faq[];
   draft: boolean;
