@@ -64,6 +64,7 @@ const cards: {
   {
     icon: Palette,
     title: "Arts & Culture",
+    href: "/culture",
     image: yakshaganaImg,
     imageAlt:
       "Yakshagana artist in traditional costume, painted face and ornate golden headdress",

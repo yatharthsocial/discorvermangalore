@@ -13,6 +13,7 @@ export function GET() {
     "",
     "## Guides",
     "",
+    `- [Arts & culture of Mangaluru](${absoluteUrl("/culture")}): Alva's Virasat (Moodbidri), Yakshagana, Bhuta Kola, Kambala, Mangaluru Dasara, Pili Vesha, Christmas at Milagres Church and Monti Fest, with when to see them and visitor etiquette.`,
     `- [Mangalorean cuisine](${absoluteUrl("/cuisine")}): Dishes to try in Mangaluru, including chicken ghee roast, kori rotti, neer dosa, bangude pulimunchi, fish rava fry, goli baje, patrode and gadbad ice cream, with spice levels.`,
     `- [Temples & heritage of Mangaluru](${absoluteUrl("/temples")}): Kadri Manjunatha and Mangaladevi temples, St Aloysius Chapel, Milagres and Rosario churches, Zeenath Baksh Masjid, Ullal Dargah, Moodbidri's thousand-pillared basadi and Sultan Battery, with visitor etiquette.`,
     `- [Beaches of Mangaluru](${absoluteUrl("/beaches")}): Panambur, Tannirbhavi, Someshwara, Ullal, Surathkal, Sasihithlu and Bengre beaches, with local tips, safety advice and the best time to visit.`,
