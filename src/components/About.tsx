@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  Compass,
   GraduationCap,
   Landmark,
   Palette,
@@ -15,7 +14,6 @@ import beachImg from "@/assets/about/mangaluru-beach-rocks.jpeg";
 import kadriTempleImg from "@/assets/about/kadri-temple-mangaluru.jpeg";
 import yakshaganaImg from "@/assets/about/yakshagana-performer.jpg";
 import cuisineImg from "@/assets/about/kori-rotti-mangalorean-cuisine.jpg";
-import localTipsImg from "@/assets/about/aerial-river-temple-mangaluru.jpeg";
 
 // To add a photo to a card: put it in src/assets/about/, import it at the top
 // (e.g. `import beachesImg from "@/assets/about/beaches.jpg";`) and set `image: beachesImg`.
@@ -80,15 +78,6 @@ const cards: {
       "Mangalorean kori rotti: chicken curry in a bowl with crisp rice wafers on the side",
     imagePosition: "55% 50%",
     text: "Ghee roast, neer dosa, fresh catch and the places where locals actually eat.",
-  },
-  {
-    icon: Compass,
-    title: "Local Tips",
-    image: localTipsImg,
-    imageAlt:
-      "Aerial view of red-roofed buildings beside a rocky river surrounded by coconut palms near Mangaluru",
-    imagePosition: "50% 50%",
-    text: "Getting around, where to stay, what to pack for the monsoon and how to plan your days.",
   },
 ];
 

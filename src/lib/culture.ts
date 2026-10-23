@@ -1,8 +1,11 @@
 import type { StaticImageData } from "next/image";
-import alvasCampusImg from "@/assets/culture/alvas-campus-moodbidri.jpg";
+import nudisiriPosterImg from "@/assets/culture/alvas-nudisiri-virasat-2027.jpg";
 import bhutaKolaImg from "@/assets/culture/bhuta-kola.jpg";
 import kambalaImg from "@/assets/culture/kambala.jpg";
 import dasaraImg from "@/assets/culture/mangaluru-dasara.jpg";
+import christmasMilagresImg from "@/assets/culture/christmas-milagres.jpg";
+import montiFestImg from "@/assets/culture/monti-fest.jpg";
+import piliVeshaImg from "@/assets/culture/pili-vesha.jpg";
 import yakshaganaImg from "@/assets/culture/yakshagana.jpg";
 
 // Content for the /culture page. To add or replace a photo: put it in src/assets/culture/, import it here and
@@ -34,22 +37,27 @@ export type Tradition = {
 
 // Shown first, as the page's featured event.
 export const virasat = {
-  name: "Alva's Virasat",
+  name: "Alva's Nudisiri 2027",
+  // Full name as printed on the official poster.
+  fullName: "Alva's Nudisiri Virasat 2027",
   organiser: "Alva's Education Foundation",
   place: "Vidyagiri campus, Moodbidri",
-  season: "Held every year, usually in December or January",
+  season: "6 to 10 January 2027",
+  startDate: "2027-01-06",
+  endDate: "2027-01-10",
+  theme: "Kannada Manasu, Bhavishyada Kanasu",
   summary:
-    "Alva's Virasat is one of Karnataka's best-known cultural festivals, organised every year by Alva's Education Foundation at its campus in Moodbidri. Over several evenings, renowned artists from across India perform classical music, dance and folk arts on a grand open-air stage, alongside Yakshagana and the traditional arts of Tulunadu.",
+    "Alva's Nudisiri Virasat 2027 brings together Alva's Nudisiri, the celebrated festival of Kannada language and literature, and Alva's Virasat, its festival of music, dance and the arts. It is organised by Alva's Education Foundation at its campus in Moodbidri, near Mangaluru, from 6 to 10 January 2027.",
   highlights: [
-    "Classical music and dance by celebrated artists from across India",
-    "Folk arts and Yakshagana from coastal Karnataka",
-    "Evenings on a vast open-air stage, with huge audiences",
-    "Organised by Alva's Education Foundation, which also hosts Alva's Nudisiri",
+    "Five days of Kannada literature, talks and conversations",
+    "Music, dance and folk performances, including Yakshagana",
+    "This year's theme: Kannada Manasu, Bhavishyada Kanasu",
+    "Organised by Alva's Education Foundation in Moodbidri",
   ],
-  website: "https://alvas.org",
-  image: alvasCampusImg,
+  website: "https://www.aiet.org.in/celebrations/alvas-nudisiri/",
+  image: nudisiriPosterImg,
   imageAlt:
-    "Alva's campus in Moodbidri, home of Alva's Virasat, with a Yakshagana figure statue at the entrance",
+    "Official poster for Alva's Nudisiri Virasat, 6 to 10 January 2027, with a Yakshagana figure and the Alva's Education Foundation logo",
 };
 
 export const traditions: Tradition[] = [
@@ -108,7 +116,7 @@ export const traditions: Tradition[] = [
     image: kambalaImg,
     imageAlt:
       "Runner driving a pair of buffaloes through water at a Kambala race",
-    imagePosition: "50% 45%",
+    imagePosition: "50% 12%",
   },
   {
     id: "mangaluru-dasara",
@@ -126,10 +134,14 @@ export const traditions: Tradition[] = [
     tip: "Evenings are the best time to see the lights. Expect large crowds near Kudroli.",
     image: dasaraImg,
     imageAlt: "Decorated idol of the goddess during Mangaluru Dasara",
-    imagePosition: "50% 30%",
+    imagePosition: "50% 8%",
   },
   {
     id: "pili-vesha",
+    image: piliVeshaImg,
+    imageAlt:
+      "Pili Vesha tiger dancers in painted spots and white wigs performing on stage",
+    imagePosition: "50% 15%",
     name: "Pili Vesha",
     kind: "performing",
     season: "Dasara and Krishna Janmashtami",
@@ -145,6 +157,10 @@ export const traditions: Tradition[] = [
   },
   {
     id: "christmas-milagres",
+    image: christmasMilagresImg,
+    imageAlt:
+      "Milagres Church lit up at night for Christmas, with a crowd gathered in front and a glowing star",
+    imagePosition: "50% 62%",
     name: "Christmas at Milagres",
     kind: "festival",
     season: "December",
@@ -160,6 +176,10 @@ export const traditions: Tradition[] = [
   },
   {
     id: "monti-fest",
+    image: montiFestImg,
+    imageAlt:
+      "Statue of the infant Mary on a bed of flowers with new paddy stalks offered at Monti Fest",
+    imagePosition: "50% 62%",
     name: "Monti Fest",
     kind: "festival",
     season: "8 September",
@@ -177,9 +197,9 @@ export const traditions: Tradition[] = [
 
 export const faqs: { question: string; answer: string }[] = [
   {
-    question: "What is Alva's Virasat?",
+    question: "When is Alva's Nudisiri 2027?",
     answer:
-      "Alva's Virasat is a major annual cultural festival organised by Alva's Education Foundation at its campus in Moodbidri, near Mangaluru, featuring classical music, dance and folk arts by artists from across India.",
+      "Alva's Nudisiri Virasat 2027 takes place from 6 to 10 January 2027 at the Vidyagiri campus of Alva's Education Foundation in Moodbidri, near Mangaluru. It combines Alva's Nudisiri, a festival of Kannada literature, with Alva's Virasat, a festival of music, dance and the arts.",
   },
   {
     question: "What is Yakshagana?",

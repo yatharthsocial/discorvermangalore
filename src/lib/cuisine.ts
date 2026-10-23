@@ -9,7 +9,7 @@ import GOLIBAJEImg from "@/assets/about/GOLI BAJE.jpg";
 import PATRODEImg from "@/assets/about/PATRODE.jpeg";
 import KOTTEKADUBUImg from "@/assets/about/KOTTE KADUBU.jpeg";
 import MANGALORE_BUNSImg from "@/assets/about/MANGALORE BUNS.jpeg";
-import GADBAD_ICE_CREAMImg from "@/assets/about/GADBAD ICE CREAM.jpg"
+import GADBAD_ICE_CREAMImg from "@/assets/cuisine/gadbad-ice-cream.jpg";
 // Content for the /cuisine page. To use a photo for a dish: add it under src/assets/cuisine/, import it here
 // and set `image`.
 

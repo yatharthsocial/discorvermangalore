@@ -1,5 +1,16 @@
 import type { StaticImageData } from "next/image";
 import kadriImg from "@/assets/about/kadri-temple-mangaluru.jpeg";
+import kateelImg from "@/assets/temples/kateel-durgaparameshwari.jpg";
+import mangaladeviImg from "@/assets/temples/mangaladevi.jpg";
+import milagresImg from "@/assets/temples/milagres-church.jpg";
+import polaliImg from "@/assets/temples/polali-rajarajeshwari.jpg";
+import rosarioImg from "@/assets/temples/rosario-cathedral.jpg";
+import basadiImg from "@/assets/temples/saavira-kambada-basadi.jpg";
+import sharavuImg from "@/assets/temples/sharavu-mahaganapathi.jpg";
+import aloysiusImg from "@/assets/temples/st-aloysius-chapel.jpg";
+import sultanImg from "@/assets/temples/sultan-battery.jpg";
+import ullalDargahImg from "@/assets/temples/ullal-dargah.jpg";
+import zeenathImg from "@/assets/temples/zeenath-baksh-masjid.jpg";
 
 // Content for the /temples page. To use a photo for a place: add it under src/assets/temples/, import it here
 // and set `image`.
@@ -27,6 +38,8 @@ export type Place = {
   tip: string;
   image?: StaticImageData;
   imageAlt?: string;
+  // Which part of the photo stays in view when it is trimmed to the card (CSS object-position).
+  imagePosition?: string;
 };
 
 export const places: Place[] = [
@@ -51,6 +64,9 @@ export const places: Place[] = [
   },
   {
     id: "mangaladevi",
+    image: mangaladeviImg,
+    imageAlt: "Entrance of the Mangaladevi Temple in Bolar, Mangaluru",
+    imagePosition: "50% 50%",
     name: "Mangaladevi Temple",
     kind: "temple",
     area: "Bolar",
@@ -63,6 +79,9 @@ export const places: Place[] = [
   },
   {
     id: "sharavu-mahaganapathi",
+    image: sharavuImg,
+    imageAlt: "Carved and painted facade of Sharavu Mahaganapathi Temple",
+    imagePosition: "50% 40%",
     name: "Sharavu Mahaganapathi Temple",
     kind: "temple",
     area: "City centre",
@@ -75,6 +94,10 @@ export const places: Place[] = [
   },
   {
     id: "polali-rajarajeshwari",
+    image: polaliImg,
+    imageAlt:
+      "Aerial view of the Polali Rajarajeshwari Temple courtyard and tiled roofs",
+    imagePosition: "50% 50%",
     name: "Polali Rajarajeshwari Temple",
     kind: "temple",
     area: "Polali, near Kaikamba",
@@ -87,6 +110,10 @@ export const places: Place[] = [
   },
   {
     id: "kateel-durgaparameshwari",
+    image: kateelImg,
+    imageAlt:
+      "Colourful gopurams at the entrance of Kateel Durgaparameshwari Temple",
+    imagePosition: "50% 45%",
     name: "Kateel Durgaparameshwari Temple",
     kind: "temple",
     area: "Kateel",
@@ -99,6 +126,9 @@ export const places: Place[] = [
   },
   {
     id: "st-aloysius-chapel",
+    image: aloysiusImg,
+    imageAlt: "Painted walls and ceiling inside St Aloysius Chapel",
+    imagePosition: "50% 40%",
     name: "St Aloysius Chapel",
     kind: "church",
     area: "Lighthouse Hill",
@@ -114,6 +144,9 @@ export const places: Place[] = [
   },
   {
     id: "milagres-church",
+    image: milagresImg,
+    imageAlt: "White facade of Milagres Church in Hampankatta, Mangaluru",
+    imagePosition: "50% 35%",
     name: "Milagres Church",
     kind: "church",
     area: "Hampankatta",
@@ -126,6 +159,9 @@ export const places: Place[] = [
   },
   {
     id: "rosario-cathedral",
+    image: rosarioImg,
+    imageAlt: "Rosario Cathedral with its dome, in Bolar",
+    imagePosition: "50% 40%",
     name: "Rosario Cathedral",
     kind: "church",
     area: "Bolar",
@@ -138,6 +174,9 @@ export const places: Place[] = [
   },
   {
     id: "zeenath-baksh-masjid",
+    image: zeenathImg,
+    imageAlt: "Arched verandah of Zeenath Baksh Juma Masjid in Bunder",
+    imagePosition: "50% 50%",
     name: "Zeenath Baksh Juma Masjid",
     kind: "mosque",
     area: "Bunder",
@@ -150,6 +189,10 @@ export const places: Place[] = [
   },
   {
     id: "ullal-dargah",
+    image: ullalDargahImg,
+    imageAlt:
+      "Ornate white, blue and gold entrance arch of Ullal Juma Masjid and Dargah, with the mosque behind",
+    imagePosition: "50% 40%",
     name: "Ullal Dargah",
     kind: "mosque",
     area: "Ullal",
@@ -162,6 +205,10 @@ export const places: Place[] = [
   },
   {
     id: "saavira-kambada-basadi",
+    image: basadiImg,
+    imageAlt:
+      "Saavira Kambada Basadi in Moodbidri, seen from above with its walled compound",
+    imagePosition: "50% 50%",
     name: "Saavira Kambada Basadi",
     kind: "jain",
     area: "Moodbidri",
@@ -174,6 +221,9 @@ export const places: Place[] = [
   },
   {
     id: "sultan-battery",
+    image: sultanImg,
+    imageAlt: "Black-stone watchtower of Sultan Battery in Boloor",
+    imagePosition: "50% 55%",
     name: "Sultan Battery",
     kind: "heritage",
     area: "Boloor",

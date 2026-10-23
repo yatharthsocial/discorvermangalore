@@ -59,6 +59,7 @@ function Visual({ place, large = false }: { place: Place; large?: boolean }) {
             : "(min-width: 1024px) 22rem, (min-width: 640px) 50vw, 100vw"
         }
         className="object-cover"
+        style={{ objectPosition: place.imagePosition }}
       />
     );
   }

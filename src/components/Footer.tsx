@@ -9,7 +9,6 @@ const topics = [
   "Temples & Heritage",
   "Arts & Culture",
   "Cuisine",
-  "Local Tips",
 ];
 
 export function Footer() {

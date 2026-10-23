@@ -21,16 +21,19 @@ import { faqs, traditions, virasat } from "@/lib/culture";
 import { absoluteUrl } from "@/lib/site";
 
 const description =
-  "Arts and culture of Mangaluru and Tulunadu: Alva's Virasat, Yakshagana, Bhuta Kola, Kambala, Mangaluru Dasara, Pili Vesha, Christmas at Milagres and Monti Fest, with when to see them.";
+  "Arts and culture of Mangaluru and Tulunadu: Alva's Nudisiri 2027, Yakshagana, Bhuta Kola, Kambala, Mangaluru Dasara, Pili Vesha, Christmas at Milagres and Monti Fest, with when to see them.";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Arts & Culture of Mangaluru: Yakshagana, Kola, Alva's Virasat",
+    absolute:
+      "Arts & Culture of Mangaluru: Alva's Nudisiri 2027, Yakshagana, Kola",
   },
   description,
   keywords: [
     "Mangalore culture",
     "Tulunadu culture",
+    "Alva's Nudisiri 2027",
+    "Alva's Nudisiri Virasat",
     "Alva's Virasat",
     "Yakshagana",
     "Bhuta Kola",
@@ -78,8 +81,12 @@ export default function CulturePage() {
   const virasatEvent: Event = {
     "@type": "Event",
     "@id": `${url}#alvas-virasat`,
-    name: virasat.name,
+    name: virasat.fullName,
     description: virasat.summary,
+    startDate: virasat.startDate,
+    endDate: virasat.endDate,
+    eventStatus: "https://schema.org/EventScheduled",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     image: absoluteUrl(virasat.image.src),
     organizer: {
       "@type": "Organization",
@@ -205,7 +212,7 @@ export default function CulturePage() {
         </div>
       </section>
 
-      {/* Featured: Alva's Virasat */}
+      {/* Featured: Alva's Nudisiri 2027 */}
       <section
         aria-labelledby="virasat-heading"
         className="mx-auto max-w-6xl px-4 pt-16 sm:px-8 sm:pt-20 lg:px-12"
@@ -217,17 +224,27 @@ export default function CulturePage() {
           id="alvas-virasat"
           className="grid scroll-mt-8 overflow-hidden rounded-[2rem] bg-white shadow-sm ring-2 ring-brand-orange/30 lg:grid-cols-2"
         >
-          <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[30rem]">
+          {/* The poster is shown whole (a poster must not be cropped), over a blurred copy of itself. */}
+          <div className="relative aspect-[4/5] overflow-hidden bg-[#7a1f1f] sm:aspect-[4/3] lg:aspect-auto lg:min-h-[32rem]">
             <Image
               src={virasat.image}
-              alt={virasat.imageAlt}
+              alt=""
               fill
-              placeholder="blur"
               sizes="(min-width: 1024px) 36rem, 100vw"
-              className="object-cover object-[50%_40%]"
+              className="scale-110 object-cover opacity-60 blur-2xl"
             />
+            <div className="absolute inset-4 sm:inset-6">
+              <Image
+                src={virasat.image}
+                alt={virasat.imageAlt}
+                fill
+                placeholder="blur"
+                sizes="(min-width: 1024px) 24rem, 80vw"
+                className="object-contain drop-shadow-2xl"
+              />
+            </div>
             <span className="absolute left-4 top-4 rounded-full bg-brand-orange px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-white">
-              Featured festival
+              Upcoming festival
             </span>
           </div>
           <div className="flex flex-col p-7 sm:p-10">
@@ -244,6 +261,9 @@ export default function CulturePage() {
             <p className="mt-3 inline-flex items-center gap-1.5 text-sm text-neutral-500">
               <CalendarDays aria-hidden className="size-4 text-brand-orange" />
               {virasat.season}
+            </p>
+            <p className="mt-1 font-script text-2xl text-brand-orange">
+              &ldquo;{virasat.theme}&rdquo;
             </p>
             <p className="mt-5 text-lg leading-relaxed">{virasat.summary}</p>
             <ul className="mt-5 space-y-2">
@@ -264,7 +284,7 @@ export default function CulturePage() {
               rel="noopener"
               className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-brand-navy px-6 py-3 text-sm font-semibold text-white"
             >
-              Visit Alva&apos;s Education Foundation
+              Visit the Alva&apos;s Nudisiri website
               <ArrowUpRight aria-hidden className="size-4" />
             </a>
           </div>
